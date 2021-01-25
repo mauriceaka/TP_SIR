@@ -10,6 +10,9 @@ public class Section {
     private List<Fiche>fiches;
 
     public Section(){}
+    public Section(String nomsection ){
+        this.nomsection=nomsection;
+    }
 
     public Section(List<Fiche>fiches, String nomsection ){
         this.fiches=fiches;

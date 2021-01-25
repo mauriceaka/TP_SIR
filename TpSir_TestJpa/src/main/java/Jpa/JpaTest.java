@@ -7,10 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class JpaTest {
@@ -45,9 +42,31 @@ public class JpaTest {
         System.out.println(".. done");
 
     }
+    private void createFiche(){
+        Tag tag1= new Tag("à couper en mai");
+        List<Tag> tags1 = new ArrayList<>();
+        tags1.add(tag1);
+        manager.persist(tag1);
+        java.sql.Date date= java.sql.Date.valueOf("2021-03-31");
+        Section section1=new Section("important");
+        manager.persist(section1);
+        for (int j = 0; j < 5000; j++) {
 
+            EntityTransaction tx = manager.getTransaction();
+            User u = new User("User"+j,"profession"+j);
+            manager.persist(u);
+            for (int i = 0; i < 2; i++) {
+                Fiche f = new Fiche("fiche_"+j + "_"+i,date,date,"lieu"+j,"url"+j+ "_"+i,tags1,"note"+j+"_"+i,section1);
+                manager.persist(f);
+                f.setUser(u);
+                u.getFiche().add(f);
+            }
 
-    private void createFiche()  {
+        }
+
+}
+
+   /* private void createFiche()  {
 //        int numOfFiche = manager.createQuery("Select a From Fiche a", Fiche.class).getResultList().size();
 //        if (numOfFiche == 0) {
 
@@ -72,6 +91,31 @@ public class JpaTest {
 //
 //            mairies.setCommunes(communes);
 //            manager.persist(mairies);
+        for (int j = 0; j < 5000; j++) {
+
+            EntityTransaction tx = manager.getTransaction();
+            tx.begin();
+            User u = new User("User"+j,"profession"+j);
+            manager.persist(u);
+            for (int i = 0; i < 2; i++) {
+                Tag tag1= new Tag();
+                List<Tag> tags1 = new ArrayList<>();
+                tags1.add(tag1);
+                java.sql.Date date= java.sql.Date.valueOf("2021-03-31");
+                Section section1=new Section("important");
+                Fiche f = new Fiche("fiche_"+j + "_"+i,date,date,"lieu"+j,"url"+j+ "_"+i,tags1,"note"+j+"_"+i,section1);
+                manager.persist(f);
+                f.setUser(u);
+                u.getFiche().add(f);
+            }
+            tx.commit();
+
+        }
+
+
+
+/*
+
         Fiche fiche = new Fiche();
         fiche.setLibelle("fiche1");
         fiche.setLieu("ABIDJAN");
@@ -117,7 +161,7 @@ public class JpaTest {
         fiche.setSection(section);
 
 
-        }
+        }*/
         /*List<Employee> resultList = manager.createQuery("Select a From Employee a", Employee.class).getResultList();
         System.out.println("num of employess:" + resultList.size());
         for (Employee next : resultList) {
@@ -125,6 +169,10 @@ public class JpaTest {
         }
 
          */
+ /*  public List<User> getUsers() {
+       String query = "select u from User as u";
+       return EntityManagerHelper.getEntityManager().createQuery(query, User.class).getResultList();
+   }*/
 
     private void listFiche() {
         List<Fiche> resultList = manager.createQuery("Select a From Fiche as a", Fiche.class).getResultList();

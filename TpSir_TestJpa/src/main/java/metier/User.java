@@ -1,6 +1,7 @@
 package metier;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -8,7 +9,7 @@ public class User {
     private long id;
     private String nom;
     private String profession;
-    private List<Fiche> fiche;
+    private List<Fiche> fiche=new ArrayList<Fiche>();
 
     public User(){}
 
@@ -16,6 +17,10 @@ public class User {
         this.nom = nom;
         this.profession = profession;
         this.fiche = fiche;
+    }
+    public User( String nom, String profession){
+        this.nom = nom;
+        this.profession = profession;
     }
 
     @Id
