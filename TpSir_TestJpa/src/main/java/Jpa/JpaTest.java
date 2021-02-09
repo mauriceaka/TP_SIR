@@ -50,7 +50,7 @@ public class JpaTest {
         java.sql.Date date= java.sql.Date.valueOf("2021-03-31");
         Section section1=new Section("important");
         manager.persist(section1);
-        for (int j = 0; j < 5000; j++) {
+        for (int j = 0; j < 2; j++) {
 
             EntityTransaction tx = manager.getTransaction();
             User u = new User("User"+j,"profession"+j);
