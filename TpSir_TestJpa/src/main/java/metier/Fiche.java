@@ -2,15 +2,16 @@ package metier;
 
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.*;
 
 @Entity
 public class Fiche {
     private long id;
     private String libelle;
-    private Date datebutoire;
+    private java.sql.Date datebutoire;
     private User user;
-    private Date time;
+    private java.sql.Date time;
     private String lieu;
     private String note;
     private String url;
@@ -18,8 +19,17 @@ public class Fiche {
     private Section section;
     
     public Fiche(){ }
-
-    public Fiche( String libelle, Date datebutoire, User user, Date time, String lieu, String url,List<Tag>tag, String note,Section section){
+    public Fiche( String libelle, java.sql.Date datebutoire,java.sql.Date time, String lieu, String url,List<Tag>tag, String note,Section section){
+        this.libelle = libelle;
+        this. datebutoire= datebutoire;
+        this. time= time;
+        this. lieu= lieu;
+        this. note= note;
+        this. tag= tag;
+        this.url=url;
+        this.section=section;
+    }
+    public Fiche( String libelle, java.sql.Date datebutoire, User user, java.sql.Date time, String lieu, String url,List<Tag>tag, String note,Section section){
         this.libelle = libelle;
         this. datebutoire= datebutoire;
         this. user= user;
@@ -30,6 +40,7 @@ public class Fiche {
         this.url=url;
         this.section=section;
     }
+
 
 
     @Id
@@ -50,11 +61,12 @@ public class Fiche {
         this.libelle = libelle;
     }
 
-    public Date getdatebutoire() {
+
+    public java.sql.Date getdatebutoire() {
         return datebutoire;
     }
 
-    public void setdatebutoire(Date datebutoire) {
+    public void setdatebutoire(java.sql.Date datebutoire) {
         this.datebutoire = datebutoire;
     }
     @ManyToOne
@@ -66,11 +78,11 @@ public class Fiche {
         this.user = user;
     }
 
-    public Date getTime() {
+    public java.sql.Date getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(java.sql.Date time) {
         this.time = time;
     }
 

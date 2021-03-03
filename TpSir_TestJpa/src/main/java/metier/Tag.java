@@ -10,6 +10,10 @@ public class Tag {
     private List<Fiche> fiche;
 
     public Tag(){}
+    public Tag( String libelle){
+        this.libelle=libelle;
+    }
+
 
     public Tag( String libelle, List<Fiche> fiche){
         this.libelle=libelle;
