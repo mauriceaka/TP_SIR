@@ -1,0 +1,9 @@
+metier\Section.class
+metier\User.class
+servlet\UserInfo.class
+Jpa\N1select.class
+metier\Fiche.class
+metier\Tag.class
+Jpa\Joinfetch.class
+servlet\MyServlet.class
+Jpa\JpaTest.class
