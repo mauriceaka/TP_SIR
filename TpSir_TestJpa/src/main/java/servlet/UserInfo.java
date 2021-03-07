@@ -64,12 +64,14 @@ public class UserInfo extends HttpServlet {
 
 //            create object user
         User user = new User(request.getParameter("name"), request.getParameter("profession"));
-        Fiche fiche = ficheDao.ficheById(Long.valueOf(request.getParameter("fiches")));
+
         user.setEmail(request.getParameter("email"));
         userDao.createUser(user);
-        fiche.setUser(user);
-        ficheDao.createFiche(fiche);
-        System.out.println(fiche.getUser());
+        if (request.getParameter("fiches") != null) {
+            Fiche fiche = ficheDao.ficheById(Long.valueOf(request.getParameter("fiches")));
+            fiche.setUser(user);
+            ficheDao.createFiche(fiche);
+        }
         PrintWriter out = response.getWriter();
 
         out.println("<HTML>\n<BODY>\n" +
