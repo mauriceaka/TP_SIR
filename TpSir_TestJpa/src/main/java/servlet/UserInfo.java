@@ -1,73 +1,89 @@
 package servlet;
 
+import dao.FicheDao;
 import dao.UserDao;
+import metier.Fiche;
 import metier.User;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
-    @WebServlet(name="userinfo", urlPatterns={"/UserInfo"})
-    public class UserInfo extends HttpServlet {
+@WebServlet(name = "userinfo", urlPatterns = {"/UserInfo"})
+public class UserInfo extends HttpServlet {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
-        EntityManager manager = factory.createEntityManager();
-        UserDao userDao = new UserDao(manager);
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
+    EntityManager manager = factory.createEntityManager();
+    UserDao userDao = new UserDao(manager);
+    FicheDao ficheDao = new FicheDao(manager);
 
-        @Override
-        protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-                throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
 
-            PrintWriter p = new PrintWriter(resp.getOutputStream());
+        PrintWriter p = new PrintWriter(resp.getOutputStream());
 
-            List<User> userList = userDao.userList();
-            p.println("<HTML>\n<BODY>\n" +
-                    "<H1>Recapitulatif des informations</H1>\n" +
-                    "<UL>\n");
-            for (User user1 : userList) {
-                p.println(
-                        " <LI>Nom: "
-                                + user1.getNom() + "\n" +
-                                " <LI>Profession: "
-                                + user1.getProfession()+ "\n <hr>");
-            }
-            p.println("</UL>\n" +
-                    "</BODY></HTML>");
+        List<User> userList = userDao.userList();
 
-            p.flush();
+        p.println("<HTML><meta charset=\"utf-8\">\n<BODY>\n" +
+                "<H1>Recapitulatif des informations</H1>\n" +
+                "<UL>\n");
+        for (User user1 : userList) {
+            p.println(
+                    " <LI>Nom: "
+                            + user1.getNom() + "</li>" +
+                            " <LI>Profession: "
+                            + user1.getProfession() + "</li>" +
+                            " <LI>Email: "
+                            + user1.getEmail() + "</li>" +
+                            "<li>Fiches: " + user1.getFiche().size()
+                            + (user1.getFiche().size()<=1?" fiche":" fiches"));
+            p.println("<ol>");
+            user1.getFiche().forEach(fiche ->
+                    p.println("<li>" + fiche.getLibelle() + "</li>\n"));
+            p.println("</ol>");
+            p.println("<hr>");
         }
+        p.println("</UL>\n" +
+                "</BODY></HTML>");
 
-        public void doPost(HttpServletRequest request,
-                           HttpServletResponse response)
-                throws ServletException, IOException {
-            response.setContentType("text/html");
+        p.flush();
+    }
+
+    public void doPost(HttpServletRequest request,
+                       HttpServletResponse response)
+            throws IOException {
+        response.setContentType("text/html");
 
 //            create object user
-            User user = new User(request.getParameter("name"), request.getParameter("firstname"));
-            userDao.createUser(user);
-            PrintWriter out = response.getWriter();
+        User user = new User(request.getParameter("name"), request.getParameter("profession"));
+        Fiche fiche = ficheDao.ficheById(Long.valueOf(request.getParameter("fiches")));
+        user.setEmail(request.getParameter("email"));
+        userDao.createUser(user);
+        fiche.setUser(user);
+        ficheDao.createFiche(fiche);
+        System.out.println(fiche.getUser());
+        PrintWriter out = response.getWriter();
 
-            out.println("<HTML>\n<BODY>\n" +
-                    "<H1>Recapitulatif des informations</H1>\n" +
-                    "<UL>\n" +
-                    " <LI>Nom: "
-                    + request.getParameter("name") + "\n" +
-                    " <LI>Prenom: "
-                    + request.getParameter("firstname") + "\n" +
-                    " <LI>Age: "
-                    + request.getParameter("age") + "\n" +
-                    "</UL>\n" +
-                    "</BODY></HTML>");
-        }
+        out.println("<HTML>\n<BODY>\n" +
+                "<H1>Recapitulatif des informations</H1>\n" +
+                "<UL>\n" +
+                " <LI>Nom: "
+                + request.getParameter("name") + "\n" +
+                " <LI>Profession: "
+                + request.getParameter("profession") + "\n" +
+                " <LI>Email: "
+                + request.getParameter("email") + "\n" +
+                "</UL>\n" +
+                "</BODY></HTML>");
     }
+}
 
 

@@ -23,8 +23,8 @@ public class JpaTest {
      */
 
     public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
-        EntityManager manager = factory.createEntityManager();
+            EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
+            EntityManager manager = factory.createEntityManager();
         JpaTest test = new JpaTest(manager);
 
         EntityTransaction tx = manager.getTransaction();

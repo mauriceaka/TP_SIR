@@ -9,6 +9,7 @@ public class User {
     private long id;
     private String nom;
     private String profession;
+    private String email;
     private List<Fiche> fiche=new ArrayList<Fiche>();
 
     public User(){}
@@ -56,5 +57,13 @@ public class User {
 
     public void setFiche(List<Fiche> fiche) {
         this.fiche = fiche;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
