@@ -7,7 +7,7 @@ while impacting our database. In addition we have combined it with the first par
 ## Getting Started
 
 Clone le projet : https://github.com/mauriceaka/TP_SIR.git </br>
-Open directory TpSir_TestJpa. </br>
+Open directory <strong>TpSir_TestJpa </strong>. </br>
 Choisir la branche pro1.
 
 ## Prerequisites
@@ -24,10 +24,10 @@ Choisir la branche pro1.
 ## Start-up
 
 •    Create a database called tpdatabase.</br>
-•    To start the project do jetty: run.</br>
+•    To start the project do <strong> jetty: run.</strong></br> 
 •    To populate the database, you have to run the file: <strong> src/main/java/Jpa/JpaTest.java. </strong></br>
-•    For the test of the loading at the earliest, it is necessary to run: src/main/java/Jpa/JoinFetch.java.</br>
-•    For the lazy loading test, run: N + 1select.
+•    For the test of the loading at the earliest, it is necessary to run: <strong> src/main/java/Jpa/JoinFetch.java. </strong></br>
+•    For the lazy loading test, run: <strong>src/main/java/Jpa/N1select.</strong>
 
 ## Built With
 
