@@ -7,7 +7,7 @@ while impacting our database. In addition we have combined it with the first par
 ## Getting Started
 
 Clone le projet : https://github.com/mauriceaka/TP_SIR.git </br>
-Open directory TpSir_TestJpa. </br>
+Open directory <strong>TpSir_TestJpa</strong>. </br>
 Choose branch <strong>pro1</strong>.
 
 ## Prerequisites
