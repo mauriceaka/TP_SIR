@@ -40,6 +40,6 @@ Choose branch <strong>pro1</strong>.
 •	Maurice AKA </br>
 •	Franck KOUAMELAN
 
-note that this would not be done without being served with the project submitted by our teacher <strong>Olivier BARAIS</strong>. </br>
+note that this work would not be done without having forked the project that our teacher gave us, sir <strong>Olivier BARAIS</strong>. </br>
 Thanks for your help and your time!!!
 
