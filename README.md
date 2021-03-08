@@ -25,7 +25,7 @@ Choisir la branche pro1.
 
 •    Create a database called tpdatabase.</br>
 •    To start the project do jetty: run.</br>
-•    To populate the database, you have to run the file: src/main/java/Jpa/JpaTest.java.</br>
+•    To populate the database, you have to run the file: <strong> src/main/java/Jpa/JpaTest.java. </strong></br>
 •    For the test of the loading at the earliest, it is necessary to run: src/main/java/Jpa/JoinFetch.java.</br>
 •    For the lazy loading test, run: N + 1select.
 
