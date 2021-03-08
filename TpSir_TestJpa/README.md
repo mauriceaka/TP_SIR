@@ -8,7 +8,7 @@ while impacting our database. In addition we have combined it with the first par
 
 Clone le projet : https://github.com/mauriceaka/TP_SIR.git </br>
 Open directory TpSir_TestJpa. </br>
-Choisir la branche pro1.
+Choose branch <strong>pro1</strong>.
 
 ## Prerequisites
 
@@ -23,11 +23,11 @@ Choisir la branche pro1.
 
 ## Start-up
 
-•    Create a database called tpdatabase.</br>
-•    To start the project do jetty: run.</br>
-•    To populate the database, you have to run the file: src/main/java/Jpa/JpaTest.java.</br>
-•    For the test of the loading at the earliest, it is necessary to run: src/main/java/Jpa/JoinFetch.java.</br>
-•    For the lazy loading test, run: N + 1select.
+•    Create a database called <strong>tpdatabase</strong>.</br>
+•    To start the project do <strong>jetty:run</strong>.</br>
+•    To populate the database, you have to run the file: <strong>src/main/java/Jpa/JpaTest.java</strong>.</br>
+•    For the test of the loading at the earliest, it is necessary to run: <strong>src/main/java/Jpa/JoinFetch.java</strong>.</br>
+•    For the lazy loading test, run: <strong>src/main/java/Jpa/N1select</strong>.
 
 ## Built With
 
@@ -36,10 +36,10 @@ Choisir la branche pro1.
 
 ## Authors
 
-•	Rebecca EHUA
-•	Maurice AKA
+•	Rebecca EHUA </br>
+•	Maurice AKA </br>
 •	Franck KOUAMELAN
 
-note that this would not be done without being served with the project submitted by our teacher Olivier BARAIS. </br>
-Thanks for your help!!!
+note that this would not be done without being served with the project submitted by our teacher <strong>Olivier BARAIS</strong>. </br>
+Thanks for your help and your time!!!
 
