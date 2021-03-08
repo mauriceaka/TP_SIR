@@ -36,8 +36,8 @@ Choisir la branche pro1.
 
 ## Authors
 
-•	Rebecca EHUA
-•	Maurice AKA
+•	Rebecca EHUA </br>
+•	Maurice AKA </br>
 •	Franck KOUAMELAN
 
 note that this would not be done without being served with the project submitted by our teacher Olivier BARAIS. </br>
