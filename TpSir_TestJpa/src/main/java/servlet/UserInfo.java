@@ -68,7 +68,8 @@ public class UserInfo extends HttpServlet {
 
         user.setEmail(request.getParameter("email"));
         userDao.createUser(user);
-        if (request.getParameter("fiches") != null) {
+
+        if (request.getParameter("fiches") != null && !request.getParameter("fiches").equals("null")) {
             Fiche fiche = ficheDao.ficheById(Long.valueOf(request.getParameter("fiches")));
             fiche.setUser(user);
             ficheDao.createFiche(fiche);

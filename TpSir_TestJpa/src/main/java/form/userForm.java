@@ -35,7 +35,8 @@ public class userForm extends HttpServlet {
                 "    Name : \t\t<INPUT type=\"text\" size=\"20\" name=\"name\"><BR>\n" +
                 "    Profession : \t<INPUT type=\"text\" size=\"20\" name=profession><BR>\n" +
                 "    Email :\t\t<INPUT type=\"text\" size=\"20\" name=email><BR>\n" +
-                "Fiche : <select id=\"fiches\" name=\"fiches\">");
+                "Fiche : <select id=\"fiches\" name=\"fiches\">" +
+                "<option value=null></option>");
         fiches.forEach(fiche ->
                 p.println("<option value=" + fiche.getId() + ">" + fiche.getLibelle() + "</option>"));
 
