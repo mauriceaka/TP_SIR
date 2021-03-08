@@ -33,7 +33,6 @@ public class UserInfo extends HttpServlet {
         PrintWriter p = new PrintWriter(resp.getOutputStream());
 
         List<User> userList = userDao.userList();
-
         p.println("<HTML><meta charset=\"utf-8\">\n<BODY>\n" +
                 "<H1>Recapitulatif des informations</H1>\n" +
                 "<UL>\n");
