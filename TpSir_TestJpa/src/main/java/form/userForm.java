@@ -1,9 +1,8 @@
 package form;
 
+import Jpa.EntityManagerHelper;
 import dao.FicheDao;
-import dao.UserDao;
 import metier.Fiche;
-import metier.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,8 +18,7 @@ import java.util.List;
 @WebServlet(name = "userform", urlPatterns = {"/userForm"})
 public class userForm extends HttpServlet {
 
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
-    EntityManager manager = factory.createEntityManager();
+    EntityManager manager = EntityManagerHelper.getEntityManager();
     FicheDao ficheDao = new FicheDao(manager);
 
     @Override
@@ -37,7 +35,7 @@ public class userForm extends HttpServlet {
                 "    Name : \t\t<INPUT type=\"text\" size=\"20\" name=\"name\"><BR>\n" +
                 "    Profession : \t<INPUT type=\"text\" size=\"20\" name=profession><BR>\n" +
                 "    Email :\t\t<INPUT type=\"text\" size=\"20\" name=email><BR>\n" +
-                "<select id=\"fiches\" name=\"fiches\" multiple>");
+                "Fiche : <select id=\"fiches\" name=\"fiches\">");
         fiches.forEach(fiche ->
                 p.println("<option value=" + fiche.getId() + ">" + fiche.getLibelle() + "</option>"));
 

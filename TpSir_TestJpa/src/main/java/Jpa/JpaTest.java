@@ -19,12 +19,12 @@ public class JpaTest {
     }
 
     /**
-     * @param args
+     * @param args default
      */
 
     public static void main(String[] args) {
-            EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
-            EntityManager manager = factory.createEntityManager();
+
+        EntityManager manager = EntityManagerHelper.getEntityManager();
         JpaTest test = new JpaTest(manager);
 
         EntityTransaction tx = manager.getTransaction();

@@ -1,5 +1,6 @@
 package servlet;
 
+import Jpa.EntityManagerHelper;
 import dao.FicheDao;
 import dao.UserDao;
 import metier.Fiche;
@@ -20,7 +21,8 @@ import java.util.List;
 public class UserInfo extends HttpServlet {
 
     EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
-    EntityManager manager = factory.createEntityManager();
+//    EntityManager manager = factory.createEntityManager();
+    EntityManager manager = EntityManagerHelper.getEntityManager();
     UserDao userDao = new UserDao(manager);
     FicheDao ficheDao = new FicheDao(manager);
 
