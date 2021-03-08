@@ -8,7 +8,7 @@ while impacting our database. In addition we have combined it with the first par
 
 Clone le projet : https://github.com/mauriceaka/TP_SIR.git </br>
 Open directory <strong>TpSir_TestJpa </strong>. </br>
-Choisir la branche pro1.
+Choose branch pro1.
 
 ## Prerequisites
 
