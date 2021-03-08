@@ -40,6 +40,6 @@ Choisir la branche pro1.
 •	Maurice AKA </br>
 •	Franck KOUAMELAN
 
-note that this would not be done without being served with the project submitted by our teacher Olivier BARAIS. </br>
+note that this would not be done without being served with the project submitted by our teacher <strong>Olivier BARAIS</strong>. </br>
 Thanks for your help!!!
 
